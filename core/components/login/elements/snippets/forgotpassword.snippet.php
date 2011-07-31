@@ -37,6 +37,7 @@ $tplType = !empty($tplType) ? $tplType : 'modChunk';
 $sentTpl = !empty($sentTpl) ? $sentTpl : 'lgnForgotPassSentTpl';
 $sentTplType = !empty($sentTplType) ? $sentTplType : 'modChunk';
 $emailTpl = !empty($emailTpl) ? $emailTpl : 'lgnForgotPassEmail';
+$emailTplAlt = !empty($emailTplAlt) ? $emailTplAlt : '';
 $emailTplType = !empty($emailTplType) ? $emailTplType : 'modChunk';
 $emailSubject = !empty($emailSubject) ? $emailSubject : '';
 $resetResourceId = !empty($resetResourceId) ? $resetResourceId : 1;
@@ -108,6 +109,7 @@ if (!empty($_POST['login_fp_service'])) {
             $emailProperties['confirmUrl'] = $confirmUrl;
             $emailProperties['password'] = $pword;
             $emailProperties['tpl'] = $emailTpl;
+            $emailProperties['tplAlt'] = $emailTplAlt;
             $emailProperties['tplType'] = $emailTplType;
 
             /* now set new password to cache to prevent middleman attacks */

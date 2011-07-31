@@ -115,9 +115,11 @@ class Login {
         if (empty($properties['tplType'])) $properties['tplType'] = 'modChunk';
 
         $msg = $this->getChunk($properties['tpl'],$properties,$properties['tplType']);
+        if (!empty($properties['tplAlt'])) $msgAlt = $this->getChunk($properties['tplAlt'],$properties,$properties['tplType']);
 
         $this->modx->getService('mail', 'mail.modPHPMailer');
         $this->modx->mail->set(modMail::MAIL_BODY, $msg);
+        if (!empty($msgAlt)) $this->modx->mail->set(modMail::MAIL_BODY_TEXT, $msgAlt);
         $this->modx->mail->set(modMail::MAIL_FROM, $this->modx->getOption('emailsender'));
         $this->modx->mail->set(modMail::MAIL_FROM_NAME, $this->modx->getOption('site_name'));
         $this->modx->mail->set(modMail::MAIL_SENDER, $this->modx->getOption('emailsender'));

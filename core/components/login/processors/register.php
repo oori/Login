@@ -140,10 +140,12 @@ if ($activation && !empty($email) && !empty($activateResourceId) && empty($field
 
     /* set confirmation email properties */
     $emailTpl = $modx->getOption('activationEmailTpl',$scriptProperties,'lgnActivateEmailTpl');
+    $emailTplAlt = $modx->getOption('activationEmailTplAlt',$scriptProperties,'');
     $emailTplType = $modx->getOption('activationEmailTplType',$scriptProperties,'modChunk');
     $emailProperties = $user->toArray();
     $emailProperties['confirmUrl'] = $confirmUrl;
     $emailProperties['tpl'] = $emailTpl;
+    $emailProperties['tplAlt'] = $emailTplAlt;
     $emailProperties['tplType'] = $emailTplType;
     $emailProperties['password'] = $fields['password'];
 
